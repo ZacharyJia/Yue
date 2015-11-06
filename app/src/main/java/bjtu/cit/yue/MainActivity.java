@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HashMap<String, String> event = adapter.getList().get(position);
+                Log.e("test", "" + position);
+                HashMap<String, String> event = adapter.getList().get(position - 1);
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 intent.putExtra("event", event);
                 startActivity(intent);
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
                             map.put("content", event.getString("content"));
                             map.put("deadline", event.getString("deadline"));
                             map.put("userId", event.getString("userId"));
+                            map.put("username", event.getString("username"));
                             list.add(map);
                         }
                         MainActivity.this.offset = array.length();
@@ -185,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
                     if (obj.getInt("code") == 0) {
                         JSONArray array = obj.getJSONArray("events");
                         for(int index = 0; index < array.length(); index++) {
-                            JSONObject event = array.getJSONObject(i);
+                            JSONObject event = array.getJSONObject(index);
                             HashMap<String, String>  map = new HashMap<String, String>();
                             map.put("id", event.getString("id"));
                             map.put("title", event.getString("title"));

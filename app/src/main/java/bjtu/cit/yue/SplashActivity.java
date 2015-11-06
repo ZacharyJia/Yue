@@ -63,6 +63,7 @@ public class SplashActivity extends Activity{
                             PreferenceUtils.putString(SplashActivity.this, "id", jsonObject.getString("id"));
                             PreferenceUtils.putString(SplashActivity.this ,"phone", jsonObject.getString("phone"));
                             PreferenceUtils.putString(SplashActivity.this ,"gender", jsonObject.getString("gender"));
+                            PreferenceUtils.putString(SplashActivity.this, "pic", jsonObject.getString("pic"));
                             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                             startActivity(intent);
                             SplashActivity.this.finish();

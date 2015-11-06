@@ -42,15 +42,6 @@ public class AddEventActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        /*
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddEventActivity.this.finish();
-            }
-        });
-        */
-
         final EditText et_title = (EditText)findViewById(R.id.et_title);
         final EditText et_content = (EditText)findViewById(R.id.et_content);
 
