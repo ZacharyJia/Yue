@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
@@ -14,6 +15,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btn_logout;
     private Button btn_username;
+    private ImageView pic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_username = (Button)findViewById(R.id.username);
         btn_logout = (Button)findViewById(R.id.logout);
-
+        pic = (ImageView)findViewById(R.id.pic);
 
         btn_logout.setOnClickListener(this);
         btn_username.setText(PreferenceUtils.getString(UserActivity.this, "username", ""));
