@@ -37,6 +37,7 @@ public class DetailActivity extends AppCompatActivity {
     private int num = 0;
     private HashMap<String, String> event;
 
+    private boolean isHoster = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class DetailActivity extends AppCompatActivity {
 
             btn_enroll = (Button) findViewById(R.id.enroll);
             if (event.get("userId").equals(PreferenceUtils.getString(DetailActivity.this, "id", ""))) {
+                isHoster = true;
                 btn_enroll.setText("解散该活动");
             }
             btn_enroll.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +138,7 @@ public class DetailActivity extends AppCompatActivity {
                         u.setGender(user.getString("gender"));
                         u.setPhone(user.getString("phone"));
                         u.setPic(user.getString("pic"));
-                        if (user.getString("id").equals(PreferenceUtils.getString(DetailActivity.this, "id", ""))) {
+                        if (!isHoster && user.getString("id").equals(PreferenceUtils.getString(DetailActivity.this, "id", ""))) {
                             btn_enroll.setText("退出该活动");
                         }
                         userList.add(u);
