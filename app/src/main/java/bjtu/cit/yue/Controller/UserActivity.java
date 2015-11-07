@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
 
@@ -23,6 +25,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("个人中心");
+
         setSupportActionBar(toolbar);
 
         btn_username = (Button)findViewById(R.id.username);
@@ -31,7 +34,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_logout.setOnClickListener(this);
         btn_username.setText(PreferenceUtils.getString(UserActivity.this, "username", ""));
+        ImageLoader imageLoader = ImageLoader.getInstance();
 
+        String picUrl = PreferenceUtils.getString(UserActivity.this, "pic", "");
+        if (picUrl.equals("")) {
+            picUrl = "drawable://" + R.drawable.user;
+        }
+        imageLoader.displayImage(picUrl, pic);
     }
 
     @Override
