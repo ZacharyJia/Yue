@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="bjtu.cit.yue.MainActivity">
+    tools:context="bjtu.cit.yue.Controller.MainActivity">
 
     <item android:id="@+id/action_user"
         android:title="用户中心"

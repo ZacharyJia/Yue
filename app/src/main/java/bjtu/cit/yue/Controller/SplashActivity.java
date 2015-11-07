@@ -1,26 +1,21 @@
-package bjtu.cit.yue;
+package bjtu.cit.yue.Controller;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.prefs.PreferenceChangeEvent;
-
+import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
 
 
@@ -33,6 +28,8 @@ public class SplashActivity extends Activity{
 
         String username = PreferenceUtils.getString(SplashActivity.this, "username", "");
         String password = PreferenceUtils.getString(SplashActivity.this, "password", "");
+        PreferenceUtils.putBoolean(SplashActivity.this, "isLogin", false);
+
 
         if(username.equals("") || password.equals(""))
         {
@@ -64,6 +61,7 @@ public class SplashActivity extends Activity{
                             PreferenceUtils.putString(SplashActivity.this ,"phone", jsonObject.getString("phone"));
                             PreferenceUtils.putString(SplashActivity.this ,"gender", jsonObject.getString("gender"));
                             PreferenceUtils.putString(SplashActivity.this, "pic", jsonObject.getString("pic"));
+                            PreferenceUtils.putBoolean(SplashActivity.this, "isLogin", true);
                             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                             startActivity(intent);
                             SplashActivity.this.finish();

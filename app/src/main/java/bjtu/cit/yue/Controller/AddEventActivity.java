@@ -1,10 +1,8 @@
-package bjtu.cit.yue;
+package bjtu.cit.yue.Controller;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -25,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
+import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
 
 public class AddEventActivity extends AppCompatActivity {

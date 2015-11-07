@@ -1,4 +1,4 @@
-package bjtu.cit.yue;
+package bjtu.cit.yue.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshExpandableListView;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -28,7 +26,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
+
+import bjtu.cit.yue.Controller.Utils.MainAdapter;
+import bjtu.cit.yue.R;
+import bjtu.cit.yue.Utils.PreferenceUtils;
 
 public class MainActivity extends AppCompatActivity implements PullToRefreshBase.OnRefreshListener2{
 
@@ -45,6 +46,13 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("活动列表");
         setSupportActionBar(toolbar);
+
+        boolean isLogin = PreferenceUtils.getBoolean(MainActivity.this, "isLogin", false);
+        if (!isLogin) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            this.finish();
+        }
 
         listView = (PullToRefreshListView)findViewById(R.id.listView);
         listView.setOnRefreshListener(this);
@@ -221,6 +229,18 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
                 listView.onRefreshComplete();
             }
         });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean isLogin = PreferenceUtils.getBoolean(MainActivity.this, "isLogin", false);
+        if (!isLogin) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            this.finish();
+        }
 
     }
 }

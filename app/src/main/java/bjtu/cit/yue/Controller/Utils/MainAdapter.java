@@ -1,4 +1,4 @@
-package bjtu.cit.yue;
+package bjtu.cit.yue.Controller.Utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import bjtu.cit.yue.R;
 
 /**
  * Created by zachary on 15/11/2.

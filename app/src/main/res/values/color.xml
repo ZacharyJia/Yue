@@ -3,4 +3,8 @@
     <color name="btn_green_up">#35B558</color>
     <color name="btn_green_down">#359558</color>
     <color name="white">#ffffff</color>
+    <color name="pressed">#cccccc</color>
+    <color name="gray">#dddddd</color>
+    <color name="red">#e04040</color>
+
 </resources>

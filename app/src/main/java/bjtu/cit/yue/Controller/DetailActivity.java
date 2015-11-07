@@ -1,8 +1,7 @@
-package bjtu.cit.yue;
+package bjtu.cit.yue.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,11 +23,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import bjtu.cit.yue.R;
+import bjtu.cit.yue.Entities.User;
 import bjtu.cit.yue.Utils.PreferenceUtils;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private List<User> userList = new ArrayList<User>();
+    private ArrayList<User> userList = new ArrayList<User>();
 
     private Button btn_enroll;
     private TextView tv_num;
@@ -71,6 +72,15 @@ public class DetailActivity extends AppCompatActivity {
 
             updateUserList();
 
+            tv_num.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DetailActivity.this, UserListActivity.class);
+                    intent.putExtra("event", event);
+                    intent.putParcelableArrayListExtra("list", userList);
+                    startActivity(intent);
+                }
+            });
 
             btn_enroll = (Button) findViewById(R.id.enroll);
             if (event.get("userId").equals(PreferenceUtils.getString(DetailActivity.this, "id", ""))) {
