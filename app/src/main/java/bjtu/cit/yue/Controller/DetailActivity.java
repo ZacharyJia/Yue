@@ -73,6 +73,8 @@ public class DetailActivity extends AppCompatActivity {
 
             updateUserList();
 
+
+            //打开参与用户列表
             tv_num.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

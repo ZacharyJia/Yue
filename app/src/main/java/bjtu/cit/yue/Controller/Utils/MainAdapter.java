@@ -23,7 +23,7 @@ public class MainAdapter extends BaseAdapter {
     }
 
     private List<HashMap<String, String>> list = new ArrayList<>();
-    LayoutInflater inflater = null;
+    private LayoutInflater inflater = null;
 
     public MainAdapter(Context context) {
         inflater = LayoutInflater.from(context);
