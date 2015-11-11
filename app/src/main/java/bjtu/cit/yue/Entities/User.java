@@ -90,4 +90,14 @@ public class User implements Parcelable{
         dest.writeString(gender);
         dest.writeString(pic);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof User) {
+            if (((User) o).getId() == this.id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -32,6 +32,10 @@ public class UserListAdapter extends BaseAdapter {
         this.layoutInflater = LayoutInflater.from(context);
     }
 
+    public List<User> getList() {
+        return list;
+    }
+
     @Override
     public int getCount() {
         return list.size();
@@ -44,7 +48,7 @@ public class UserListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override

@@ -82,6 +82,7 @@ public class DetailActivity extends AppCompatActivity {
                     intent.putExtra("event", event);
                     intent.putParcelableArrayListExtra("list", userList);
                     startActivity(intent);
+                    finish();
                 }
             });
 
