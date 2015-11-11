@@ -9,6 +9,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
+import io.rong.imkit.RongIM;
+
 /**
  * Created by zachary on 15/11/7.
  */
@@ -36,6 +38,8 @@ public class App extends Application {
                 // Empty implementation
             }
         });
+
+        RongIM.init(this);
 
     }
 }

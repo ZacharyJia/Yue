@@ -11,4 +11,5 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="title_activity_user_list">UserListActivity</string>
     <string name="title_activity_my_events">MyEventsActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
 </resources>

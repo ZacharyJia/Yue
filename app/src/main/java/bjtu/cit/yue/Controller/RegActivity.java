@@ -83,6 +83,8 @@ public class RegActivity extends AppCompatActivity {
                                     PreferenceUtils.putString(RegActivity.this, "phone", phone);
                                     PreferenceUtils.putString(RegActivity.this, "gender", gender);
                                     PreferenceUtils.putString(RegActivity.this, "id", jsonObject.getString("id"));
+                                    PreferenceUtils.putString(RegActivity.this, "token", jsonObject.getString("token"));
+                                    PreferenceUtils.putBoolean(RegActivity.this, "isLogin", true);
                                     Intent intent = new Intent(RegActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     RegActivity.this.finish();

@@ -15,6 +15,8 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.xml.parsers.SAXParser;
+
 import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
 
@@ -61,6 +63,7 @@ public class SplashActivity extends Activity{
                             PreferenceUtils.putString(SplashActivity.this ,"phone", jsonObject.getString("phone"));
                             PreferenceUtils.putString(SplashActivity.this ,"gender", jsonObject.getString("gender"));
                             PreferenceUtils.putString(SplashActivity.this, "pic", jsonObject.getString("pic"));
+                            PreferenceUtils.putString(SplashActivity.this, "token", jsonObject.getString("token"));
                             PreferenceUtils.putBoolean(SplashActivity.this, "isLogin", true);
                             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                             startActivity(intent);

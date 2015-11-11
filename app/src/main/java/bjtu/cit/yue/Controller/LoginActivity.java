@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                                         PreferenceUtils.putString(LoginActivity.this, "phone", jsonObject.getString("phone"));
                                         PreferenceUtils.putString(LoginActivity.this, "gender", jsonObject.getString("gender"));
                                         PreferenceUtils.putString(LoginActivity.this, "pic", jsonObject.getString("pic"));
+                                        PreferenceUtils.putString(LoginActivity.this, "token", jsonObject.getString("token"));
                                         PreferenceUtils.putBoolean(LoginActivity.this, "isLogin", true);
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);

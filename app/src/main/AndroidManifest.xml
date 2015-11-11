@@ -58,6 +58,23 @@
             android:label="@string/title_activity_my_events"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".Controller.ChatActivity"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="bjtu.cit.yue"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong"/>
+
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
