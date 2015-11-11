@@ -62,16 +62,31 @@
             android:name=".Controller.ChatActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data
                     android:host="bjtu.cit.yue"
                     android:pathPrefix="/conversation/"
-                    android:scheme="rong"/>
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Controller.ChatListActivity"
+            android:label="@string/title_activity_chat_list"
+            android:theme="@style/AppTheme.NoActionBar" >
 
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="bjtu.cit.yue"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
             </intent-filter>
 
         </activity>

@@ -30,6 +30,8 @@ import java.util.List;
 import bjtu.cit.yue.Controller.Utils.MainAdapter;
 import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class MainActivity extends AppCompatActivity implements PullToRefreshBase.OnRefreshListener2{
 
@@ -53,6 +55,25 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
             startActivity(intent);
             this.finish();
         }
+
+        RongIM.connect(PreferenceUtils.getString(MainActivity.this, "token", ""), new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+                Log.e("debug", "token incorrect");
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                Log.e("debug", s);
+
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                Log.e("debug", "" + errorCode.getMessage());
+            }
+
+            });
 
         listView = (PullToRefreshListView)findViewById(R.id.listView);
         listView.setOnRefreshListener(this);
