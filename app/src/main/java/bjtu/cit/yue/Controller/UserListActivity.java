@@ -28,6 +28,7 @@ import java.util.HashMap;
 
 import javax.security.auth.login.LoginException;
 
+import bjtu.cit.yue.App;
 import bjtu.cit.yue.Controller.Utils.UserListAdapter;
 import bjtu.cit.yue.Entities.User;
 import bjtu.cit.yue.R;
@@ -80,6 +81,15 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
                 menu.add(0, 0, 0, "剔除");
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(UserListActivity.this, UserInfoActivity.class);
+                User user = adapter.getList().get(position);
+                intent.putExtra("user", user);
+                startActivity(intent);
             }
         });
 

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import bjtu.cit.yue.App;
 import bjtu.cit.yue.Controller.Utils.MainAdapter;
 import bjtu.cit.yue.R;
 import bjtu.cit.yue.Utils.PreferenceUtils;
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements PullToRefreshBase
             startActivity(intent);
             this.finish();
         }
+
+        String username = PreferenceUtils.getString(MainActivity.this, "username", "");
+        String pic = PreferenceUtils.getString(MainActivity.this, "pic", "");
+        App.setUserPic(username, pic);
 
         RongIM.connect(PreferenceUtils.getString(MainActivity.this, "token", ""), new RongIMClient.ConnectCallback() {
             @Override

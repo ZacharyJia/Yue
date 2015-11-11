@@ -77,7 +77,6 @@
             android:name=".Controller.ChatListActivity"
             android:label="@string/title_activity_chat_list"
             android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -88,7 +87,11 @@
                     android:pathPrefix="/conversationlist"
                     android:scheme="rong" />
             </intent-filter>
-
+        </activity>
+        <activity
+            android:name=".Controller.UserInfoActivity"
+            android:label="@string/title_activity_user_info"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 
