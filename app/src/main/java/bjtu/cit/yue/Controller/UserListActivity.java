@@ -86,8 +86,12 @@ public class UserListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(UserListActivity.this, UserInfoActivity.class);
                 User user = adapter.getList().get(position);
+                if (user.getUsername().equals(PreferenceUtils.getString(UserListActivity.this, "username", ""))) {
+                    Toast.makeText(UserListActivity.this, "你自己^_^", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(UserListActivity.this, UserInfoActivity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }
