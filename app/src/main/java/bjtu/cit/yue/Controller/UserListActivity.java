@@ -61,6 +61,10 @@ public class UserListActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
+        if (userList.size() == 0) {
+            return;
+        }
+
         hoster = userList.get(0);
         if (hoster.getUsername().equals(PreferenceUtils.getString(UserListActivity.this, "username", ""))) {
             isHoster = true;

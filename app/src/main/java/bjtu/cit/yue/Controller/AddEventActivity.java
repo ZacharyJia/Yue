@@ -20,6 +20,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import bjtu.cit.yue.R;
@@ -91,11 +92,13 @@ public class AddEventActivity extends AppCompatActivity {
         deadline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date date = new Date(System.currentTimeMillis());
+                Calendar c = Calendar.getInstance();
                 if (year == 0) {
-                    year = date.getYear() + 1900;
-                    month = date.getMonth();
-                    day = date.getDay();
+                    year = c.get(c.YEAR);
+                    month = c.get(c.MONTH) + 1;
+                    day = c.get(c.DAY_OF_MONTH);
+                    Log.e("debug", "" + year + month + day);
+
                 }
                 DatePickerDialog dialog = new DatePickerDialog(AddEventActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -103,9 +106,9 @@ public class AddEventActivity extends AppCompatActivity {
                         AddEventActivity.this.year = year;
                         AddEventActivity.this.month = monthOfYear + 1;
                         AddEventActivity.this.day = dayOfMonth;
-                        deadline.setText(year + "年" + (monthOfYear + 1) +"月" + dayOfMonth +  "日");
+                        deadline.setText(year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日");
                     }
-                }, year, month, day);
+                }, year, month - 1, day);
                 dialog.show();
             }
         });

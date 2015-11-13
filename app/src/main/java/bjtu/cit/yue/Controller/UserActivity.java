@@ -44,6 +44,8 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_username;
     private ImageView pic;
     private Button btn_msg;
+    private Button btn_myEvents;
+    private Button btn_joinEvents;
 
     private static int CAMERA_REQUEST_CODE = 1;
     private static int GALLERY_REQUEST_CODE = 2;
@@ -63,11 +65,15 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         btn_logout = (Button)findViewById(R.id.logout);
         pic = (ImageView)findViewById(R.id.pic);
         btn_msg = (Button)findViewById(R.id.msg);
+        btn_myEvents = (Button)findViewById(R.id.myEvent);
+        btn_joinEvents = (Button)findViewById(R.id.enrollEvent);
 
         btn_msg.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
         btn_username.setText(PreferenceUtils.getString(UserActivity.this, "username", ""));
         pic.setOnClickListener(this);
+        btn_joinEvents.setOnClickListener(this);
+        btn_myEvents.setOnClickListener(this);
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         String picUrl = PreferenceUtils.getString(UserActivity.this, "pic", "");
@@ -116,6 +122,16 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             AlertDialog dialog = new AlertDialog.Builder(UserActivity.this)
                     .setItems(new CharSequence[]{"从相册中选择", "拍照"}, listener)
                     .show();
+        }
+        else if (v == btn_myEvents) {
+            Intent intent = new Intent(UserActivity.this, MyEventsActivity.class);
+            intent.putExtra("type", MyEventsActivity.HOST_EVENT);
+            startActivity(intent);
+        }
+        else if (v == btn_joinEvents) {
+            Intent intent = new Intent(UserActivity.this, MyEventsActivity.class);
+            intent.putExtra("type", MyEventsActivity.JOIN_EVENT);
+            startActivity(intent);
         }
 
     }
